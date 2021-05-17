@@ -15,4 +15,5 @@ urlpatterns = [
     path('user/deletePage', views.deletePage),
     path('user/update', views.update),
     path('parks/<int:park_id>', views.parkPage),
+    path('parks/favorite', views.favorite_park),
 ]

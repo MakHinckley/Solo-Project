@@ -54,16 +54,16 @@ def userAcct(request):
 
 def parkPage(request, park_id):
     one_park= Park.objects.get(id= park_id)
+    all_img=Park.objects.all()
     context={
-        'park':one_park
+        'park':one_park,
+        'park_image':all_img
     }
     return render(request, 'parkPage.html',context)
 
 def parks(request):
-    
     context={
         'all_parks': Park.objects.all(),
-        'one_img':Park.objects.filter(image="park_image")
     }
     return render(request,'parks.html', context)
 
@@ -90,6 +90,13 @@ def deletePage(request):
     user=User.objects.get(id=request.session['logged_user'])
     user.delete()
     return redirect('/login')
+
+def favorite_park(request, park_id):
+    user=User.objects.get(id=request.session['logged_user'])
+    park=Park.objects.get(id=park_id)
+    user.users_favorited.add(park)
+
+    return redirect('/homepage')
 
 def logout(request):
     request.session.flush()

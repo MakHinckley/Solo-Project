@@ -58,14 +58,12 @@
             <li class="list-group-item">Entrance Fee: {{park.fee}}</li>
         </ul>
         <div class="card-body">
-            <a href="parks/{{park.id}}" class="btn btn-success" type="button">Park Site</a> <a href="parks/{{park.id}}" class="btn btn-primary" type="button">Favorite</a>
+            <a href="/parks/{{park.id}}" class="btn btn-success" type="button">Park Site</a> <a href="/parks/favorite"
+                class="btn btn-primary" type="button">Favorite</a>
         </div>
     </div>
+        
     {% endfor %}
-    
-
-    
-    
 </body>
 
 </html>

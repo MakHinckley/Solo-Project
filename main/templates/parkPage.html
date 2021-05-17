@@ -44,10 +44,12 @@
         </div>
         </div>
     </nav>
-
     <h1>{{park.park_name}}</h1>
-
     
+        {% for park_image in all_img %} 
+            <img src="{{park.park_image.image.url}}">
+
+        {% endfor %}
     
     
 </body>
