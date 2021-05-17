@@ -1,0 +1,14 @@
+body {
+    font-family: 'Indie Flower', cursive; 
+}
+
+body h1{
+    position: relative;
+    left: 40%;
+}
+
+body .card{
+    display: inline-block;
+    position: relative;
+    left:2.5%
+}
