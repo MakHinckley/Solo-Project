@@ -62,8 +62,10 @@ def parkPage(request, park_id):
     return render(request, 'parkPage.html',context)
 
 def parks(request):
+    
     context={
         'all_parks': Park.objects.all(),
+        
     }
     return render(request,'parks.html', context)
 
@@ -94,9 +96,13 @@ def deletePage(request):
 def favorite_park(request, park_id):
     user=User.objects.get(id=request.session['logged_user'])
     park=Park.objects.get(id=park_id)
-    user.users_favorited.add(park)
+    park.users_favorited.add(user)
+    for parks in park.users_favorited:
+        if park==True:
+            request.POST['park.users_favorited']
 
     return redirect('/homepage')
+    
 
 def logout(request):
     request.session.flush()

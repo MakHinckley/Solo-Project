@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{% static 'parkStyle.css' %}">
 </head>
 
-<body>
+<body id='bg'style="background-image:url('{%static 'images/back.jpg'%}');">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="/homepage">AllTrees</a>
@@ -57,13 +57,16 @@
             <li class="list-group-item">Location: {{park.location}}</li>
             <li class="list-group-item">Entrance Fee: {{park.fee}}</li>
         </ul>
+    
         <div class="card-body">
-            <a href="/parks/{{park.id}}" class="btn btn-success" type="button">Park Site</a> <a href="/parks/favorite"
-                class="btn btn-primary" type="button">Favorite</a>
+            <a href="/parks/{{park.id}}" class="btn btn-success" type="button">Park Site</a> 
+            {% if logged_user in parks.users_favorited.all %}
+            <a href="/favorite/{{park.id}}" class="btn btn-primary" type="button">Favorite</a>
+            {% endif %}
         </div>
     </div>
-        
     {% endfor %}
+    
 </body>
 
 </html>
